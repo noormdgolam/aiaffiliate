@@ -1,39 +1,49 @@
 import os
 import re
 
-# List of 30 SEO titles
-TITLES = [
-    "How to Build an AI App Without Coding in 2026",
-    "The Ultimate Guide to No-Code AI Software Generation",
-    "Can You Really Build an AI App in 10 Minutes?",
-    "AI App Development for Complete Beginners",
-    "Stop Paying Developers: Create Your Own AI Tools",
-    "The VIBE-RC Prompting Method Explained",
-    "From Idea to Launch: AI App Creation Simplified",
-    "Best No-Code Platforms for AI Integration",
-    "How to Turn ChatGPT Prompts into Standalone Apps",
-    "The Future of Software: No-Code AI",
-    "Top 5 AI Apps Real Estate Agents Need Right Now",
-    "How Digital Marketers are Automating with Custom AI Apps",
-    "Essential AI Tools for Content Creators & Influencers",
-    "Building AI Assistants for E-commerce Stores",
-    "How Local Businesses Can Leverage Custom AI Software",
-    "AI Lead Generation Tools for B2B Sales",
-    "Custom AI Apps for Fitness Coaches and Trainers",
-    "AI Solutions for Online Course Creators",
-    "Automating Customer Service with No-Code AI",
-    "AI for Copywriters: Building Your Own Generation Tool",
-    "How to Make Money Selling Custom AI Apps",
-    "Top 10 AI Micro-SaaS Ideas You Can Build Today",
-    "Starting an AI Agency with Zero Coding Skills",
-    "Passive Income Strategies Using AI Software",
-    "How to Package and Sell AI Prompts as Software",
-    "The Economics of No-Code AI Development",
-    "Case Study: Earning with Simple AI Tools",
-    "How to Create High-Converting Lead Magnets with AI",
-    "Licensing Your AI Apps: A Beginner's Guide",
-    "The AI Gold Rush: Why Non-Technical Founders are Winning"
-]
+# Categorized titles
+CATEGORIES = {
+    "Beginner Guides": [
+        "How to Build an AI App Without Coding in 2026",
+        "The Ultimate Guide to No-Code AI Software Generation",
+        "Can You Really Build an AI App in 10 Minutes?",
+        "AI App Development for Complete Beginners",
+        "From Idea to Launch: AI App Creation Simplified",
+        "Best No-Code Platforms for AI Integration",
+        "The Future of Software: No-Code AI"
+    ],
+    "Business & Agency": [
+        "Stop Paying Developers: Create Your Own AI Tools",
+        "Starting an AI Agency with Zero Coding Skills",
+        "The Economics of No-Code AI Development",
+        "The AI Gold Rush: Why Non-Technical Founders are Winning"
+    ],
+    "Monetization & Sales": [
+        "How to Make Money Selling Custom AI Apps",
+        "Top 10 AI Micro-SaaS Ideas You Can Build Today",
+        "Passive Income Strategies Using AI Software",
+        "Case Study: Earning with Simple AI Tools",
+        "Licensing Your AI Apps: A Beginner's Guide",
+        "How to Package and Sell AI Prompts as Software"
+    ],
+    "Industry Solutions": [
+        "Top 5 AI Apps Real Estate Agents Need Right Now",
+        "How Digital Marketers are Automating with Custom AI Apps",
+        "Essential AI Tools for Content Creators & Influencers",
+        "Building AI Assistants for E-commerce Stores",
+        "How Local Businesses Can Leverage Custom AI Software",
+        "Custom AI Apps for Fitness Coaches and Trainers",
+        "AI Solutions for Online Course Creators",
+        "Automating Customer Service with No-Code AI",
+        "AI for Copywriters: Building Your Own Generation Tool"
+    ],
+    "Marketing & Lead Gen": [
+        "AI Lead Generation Tools for B2B Sales",
+        "How to Create High-Converting Lead Magnets with AI",
+        "The VIBE-RC Prompting Method Explained",
+        "How to Turn ChatGPT Prompts into Standalone Apps"
+    ]
+}
 
 def slugify(title):
     slug = title.lower()
@@ -42,7 +52,6 @@ def slugify(title):
     return slug + ".html"
 
 def generate_content(title):
-    # Generates a standard SEO-optimized article body based on the title.
     return f"""
         <p>Welcome to our comprehensive guide on <strong>{title}</strong>. If you've been watching the AI space, you already know how quickly things are moving. The good news? You don't need a computer science degree to participate in this revolution.</p>
         
@@ -74,35 +83,58 @@ def main():
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
         
-    index_links = []
+    all_links = {}
 
-    for title in TITLES:
-        slug = slugify(title)
-        content = generate_content(title)
+    for cat_name, titles in CATEGORIES.items():
+        cat_slug = slugify(cat_name)
+        all_links[cat_name] = {"slug": cat_slug, "links": []}
         
-        html = template.replace("{{TITLE}}", title)
-        html = html.replace("{{DESCRIPTION}}", f"Learn all about {title} with our in-depth guide on no-code AI app creation.")
-        html = html.replace("{{DATE}}", "July 2026")
-        html = html.replace("{{CONTENT}}", content)
-        
-        out_path = os.path.join(out_dir, slug)
-        with open(out_path, 'w', encoding='utf-8') as f:
-            f.write(html)
+        for title in titles:
+            slug = slugify(title)
+            content = generate_content(title)
             
-        index_links.append(f'<li><a href="{slug}">{title}</a></li>')
-        print(f"Generated {slug}")
+            html = template.replace("{{TITLE}}", title)
+            html = html.replace("{{DESCRIPTION}}", f"Learn all about {title} with our in-depth guide on no-code AI app creation.")
+            html = html.replace("{{DATE}}", "July 2026")
+            html = html.replace("{{CONTENT}}", content)
+            
+            out_path = os.path.join(out_dir, slug)
+            with open(out_path, 'w', encoding='utf-8') as f:
+                f.write(html)
+                
+            all_links[cat_name]["links"].append(f'<li><a href="{slug}">{title}</a></li>')
+            print(f"Generated {slug}")
         
-    # Generate an index.html for the articles folder
+        # Generate category index page
+        cat_html = template.replace("{{TITLE}}", f"{cat_name} Articles | AI App Alchemy")
+        cat_html = cat_html.replace("{{DESCRIPTION}}", f"Browse our collection of articles on {cat_name} for AI app creation.")
+        cat_html = cat_html.replace("{{DATE}}", "July 2026")
+        
+        cat_content = f"<h2>{cat_name}</h2><ul style='list-style-type:none; padding-left:0;'>"
+        for link in all_links[cat_name]["links"]:
+            styled_link = link.replace("<a href=", "<a style='color:var(--accent);text-decoration:none;font-weight:600;font-size:1.1rem;' href=")
+            cat_content += f"<li style='margin-bottom:10px; padding:15px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); border-radius:8px;'>{styled_link}</li>"
+        cat_content += "</ul>"
+        
+        cat_html = cat_html.replace("{{CONTENT}}", cat_content)
+        with open(os.path.join(out_dir, cat_slug), 'w', encoding='utf-8') as f:
+            f.write(cat_html)
+        print(f"Generated category page: {cat_slug}")
+            
+    # Generate main index.html for the articles folder
     index_html = template.replace("{{TITLE}}", "AI App Development Blog & Resources")
     index_html = index_html.replace("{{DESCRIPTION}}", "Browse our collection of 30+ articles on how to build, launch, and monetize AI apps without coding.")
     index_html = index_html.replace("{{DATE}}", "July 2026")
     
-    index_content = "<h2>Latest Articles</h2><ul style='list-style-type:none; padding-left:0;'>"
-    for link in index_links:
-        styled_link = link.replace("<a href=", "<a style='color:var(--accent);text-decoration:none;font-weight:600;font-size:1.1rem;' href=")
-        index_content += f"<li style='margin-bottom:10px; padding:15px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); border-radius:8px;'>{styled_link}</li>"
-    index_content += "</ul>"
-    
+    index_content = "<h2>All Categories</h2>"
+    for cat_name, data in all_links.items():
+        index_content += f"<h3 style='margin-top:2rem;'><a style='color:var(--accent);text-decoration:none;' href='{data['slug']}'>{cat_name}</a></h3>"
+        index_content += "<ul style='list-style-type:none; padding-left:0;'>"
+        for link in data["links"]:
+            styled_link = link.replace("<a href=", "<a style='color:white;text-decoration:none;font-size:1rem;' href=")
+            index_content += f"<li style='margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.05);'>{styled_link}</li>"
+        index_content += "</ul>"
+        
     index_html = index_html.replace("{{CONTENT}}", index_content)
     
     with open(os.path.join(out_dir, "index.html"), 'w', encoding='utf-8') as f:
