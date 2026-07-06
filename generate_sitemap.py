@@ -4,7 +4,7 @@ from datetime import datetime
 
 DOMAIN = "https://aiappalchemy.com" # Adjust if the live domain is different
 # Wait, the folder name is httpsaiappalchemy.comnow, so maybe the domain is https://aiappalchemy.com/now
-DOMAIN = "https://aiappalchemy.com/now"
+DOMAIN = "https://ai.bongshai.com"
 
 def generate_sitemap():
     html_files = []
