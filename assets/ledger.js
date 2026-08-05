@@ -148,7 +148,7 @@
   var cl = data['clock'];
   if (cl) {
     lines.push('Asked to time the arrival of your own intention to act, you produced a figure of ' +
-      (cl.meanMs < 0 ? '' : '+') + cl.meanMs + ' ms relative to the act, with your five reports ' +
+      (cl.meanMs < 0 ? '−' : '+') + Math.abs(cl.meanMs) + ' ms relative to the act, with your five reports ' +
       'differing from one another by ' + Math.abs(cl.spreadMs) + ' ms. You reported all of them ' +
       'with the same confidence.');
   }
