@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IV. The Heap — Apparatus</title>
+<meta name="description" content="A sorites instrument. Find the exact grain at which a heap stops being a heap — then find it again from the other direction.">
+<link rel="stylesheet" href="../assets/apparatus.css">
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root="../"></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Instrument IV · Concepts</span>
+      <h1>The Heap</h1>
+      <p class="subtitle">You have used the word thousands of times without difficulty. This instrument asks you to say what it means — not in general, but here, to the grain.</p>
+    </div>
+
+    <div class="prose">
+      <p class="lede">Two propositions, both of which you almost certainly accept:</p>
+      <p><strong>One.</strong> Eight hundred grains of sand in a pile is a heap.<br>
+      <strong>Two.</strong> Removing a single grain from a heap always leaves a heap.</p>
+      <p>From those two, by seven hundred and ninety-nine applications of the second, one grain of sand is a heap. Something has gone wrong, and it is not the arithmetic.</p>
+      <div class="notice">Two passes. In the first, tear the pile down and stop when it is no longer a heap. In the second, build it up and stop when it becomes one. Judge by eye. Do not try to be consistent — try to be honest.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span id="pass-label">Apparatus IV — pass 1, descending</span>
+        <span class="readout" id="count-out">800 grains</span>
+      </div>
+
+      <div class="stage" style="min-height:19rem">
+        <canvas id="pile" aria-label="A pile of sand"></canvas>
+      </div>
+
+      <div class="controls" id="controls-down">
+        <button data-delta="-1">− 1</button>
+        <button data-delta="-10">− 10</button>
+        <button data-delta="-100">− 100</button>
+        <div class="spacer"></div>
+        <button id="declare-down" class="primary">This is no longer a heap</button>
+      </div>
+
+      <div class="controls" id="controls-up" style="display:none">
+        <button data-delta="1">+ 1</button>
+        <button data-delta="10">+ 10</button>
+        <button data-delta="100">+ 100</button>
+        <div class="spacer"></div>
+        <button id="declare-up" class="primary">This is now a heap</button>
+      </div>
+    </div>
+
+    <!-- the single-grain question -->
+    <div class="step" id="s-grain">
+      <div class="prose">
+        <h2>One more question</h2>
+        <p id="grain-q"></p>
+      </div>
+      <div class="panel">
+        <div class="panel-body">
+          <div class="controls no-rule" style="background:none; justify-content:center; padding:0">
+            <button id="grain-yes">Yes — one grain can decide it</button>
+            <button id="grain-no">No — one grain never decides it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="finding" id="finding" hidden>
+      <p class="seal">Finding IV</p>
+      <div class="prose">
+        <h2 style="margin-top:0">Your concept has no edge, and you used it anyway</h2>
+
+        <div class="readout-grid" style="border:1px solid var(--rule); margin-bottom:2.4rem">
+          <div><dt>Ceased to be a heap at</dt><dd id="r-down">—</dd></div>
+          <div><dt>Became a heap at</dt><dd id="r-up">—</dd></div>
+          <div><dt>Width of the gap</dt><dd id="r-gap">—</dd></div>
+        </div>
+
+        <p id="r-hyst"></p>
+
+        <p id="r-contra"></p>
+
+        <h3>The trap, stated plainly</h3>
+
+        <p>You hold three things that cannot all be true.</p>
+        <p><strong>(a)</strong> Eight hundred grains is a heap. <strong>(b)</strong> One grain is not.
+        <strong>(c)</strong> No single grain ever makes the difference.</p>
+
+        <p>Accept (a) and (c) and you are forced to call one grain a heap. Accept (a) and (b) and you are forced to abandon (c) — there must be some exact number <em>n</em> where a heap of <em>n</em> grains becomes a non-heap of <em>n</em>−1. Not approximately. Exactly. A single grain, lifted with tweezers, destroying a heap.</p>
+
+        <p>Everyone rejects that. And yet the alternative is that “heap” — a word you have never once been confused by — does not actually pick out anything with a boundary.</p>
+
+        <h3>The ways out, and what each one costs</h3>
+
+        <p><strong>Epistemicism.</strong> There <em>is</em> a sharp cut-off. Some precise <em>n</em> is the last heap. You simply cannot know which, and neither can anyone else, because meaning is fixed by patterns of use too vast for any speaker to survey. Williamson defends this seriously. The cost is a fact about heaps that is, in principle, unknowable to every competent user of the word.</p>
+
+        <p><strong>Degrees.</strong> “Heap” is not true or false but true-to-a-degree, sliding from 1 to 0 across the range. The cost: you have replaced one sharp boundary with two, and now owe an exact account of where degree 0.9 becomes degree 0.89.</p>
+
+        <p><strong>Nihilism.</strong> There are no heaps. The predicate is incoherent and picks out nothing. The cost is obvious: you were looking at one.</p>
+
+        <p>No option is free. The argument is 2,300 years old and it is not solved.</p>
+
+        <h3>Why this instrument is here</h3>
+
+        <p>Because “heap” is not the interesting case. The interesting case is <strong>you</strong>.</p>
+
+        <p>A fertilised cell is not a person; you are. Somewhere between, on the same kind of gradient, without any single cell division that could plausibly be the moment. A person with advancing dementia does not stop being themselves on a Tuesday. Your body has replaced most of its material several times over and you have never noticed a discontinuity. The neural pattern that composes your memories and character today differs from the one twenty years ago by more than a heap differs from a heap minus a hundred grains.</p>
+
+        <p>If “heap” cannot survive one grain of pressure, ask what “the same person” is doing carrying the weight it carries — in your promises, your guilt about things done decades ago, your fear of your own death.</p>
+
+        <blockquote>
+          Identity is not a relation that either holds absolutely or fails absolutely. What matters in survival comes in degrees, and it can hold to a greater or lesser extent between me and a future person.
+          <cite>after Derek Parfit, Reasons and Persons, 1984</cite>
+        </blockquote>
+
+        <p>You just drew a line in sand, twice, in two different places, and you knew as you drew it that it was not really there. Instrument V asks when, exactly, you decided to.</p>
+
+        <div class="footnotes">
+          <p>Attributed to Eubulides of Miletus, 4th century BCE — the same logician who formulated the liar paradox.</p>
+          <p>Williamson, T. (1994). <em>Vagueness</em> — the epistemicist case for a sharp but unknowable boundary.</p>
+          <p>Parfit, D. (1984). <em>Reasons and Persons</em>, part III — on personal identity as a matter of degree.</p>
+          <p>Hysteresis in categorisation is a well-documented perceptual effect: the point at which a gradually changing stimulus flips category depends on the direction of change.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" data-pager></nav>
+  </main>
+</div>
+
+<script src="../assets/apparatus.js"></script>
+<script src="../assets/i/sorites.js"></script>
+</body>
+</html>

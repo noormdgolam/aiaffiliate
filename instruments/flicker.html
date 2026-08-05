@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>II. The Flicker — Apparatus</title>
+<meta name="description" content="A change blindness instrument: something large in front of you is changing, and you will not be able to find it.">
+<link rel="stylesheet" href="../assets/apparatus.css">
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root="../"></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Instrument II · Attention</span>
+      <h1>The Flicker</h1>
+      <p class="subtitle">You are about to look directly at a large object while it changes, over and over, for as long as it takes — and not see it.</p>
+    </div>
+
+    <div class="prose">
+      <p class="lede">Look up from this screen for a moment. You have the strong impression of a detailed, stable, fully rendered world extending in every direction — not a sketch, not a summary. A picture.</p>
+      <p>This instrument tests that impression directly. Two versions of a scene will alternate, separated by a brief blank. One element differs between them. It is not small, and it is not hidden. Click it when you find it.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span>Apparatus II — alternation field</span>
+        <span class="readout" id="readout">Standing by</span>
+      </div>
+
+      <div class="stage">
+        <canvas id="stage" style="cursor:crosshair" aria-label="Alternating scene"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="start" class="primary">Begin alternation</button>
+        <button id="give-up" class="quiet" disabled>I give up — show me</button>
+        <div class="spacer"></div>
+        <span class="tick" id="tick">00.0 s · 0 cycles</span>
+      </div>
+    </div>
+
+    <div id="reveal-block" class="step">
+      <div class="prose">
+        <h2>The same two images, without the blank</h2>
+        <p>Nothing about the change has been altered. The only thing removed is the fifth of a second of grey between them.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-bar">
+          <span>Apparatus II — control condition</span>
+          <span class="readout">Blank suppressed</span>
+        </div>
+        <div class="stage">
+          <canvas id="stage-b" aria-label="The same alternation without a blank interval"></canvas>
+        </div>
+        <div class="controls">
+          <button id="to-finding" class="primary">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="finding" id="finding" hidden>
+      <p class="seal">Finding II</p>
+      <div class="prose">
+        <h2 style="margin-top:0">You were never holding the picture</h2>
+
+        <div class="readout-grid" style="border:1px solid var(--rule); margin-bottom:2.4rem">
+          <div><dt>Outcome</dt><dd class="small" id="r-outcome">—</dd></div>
+          <div><dt>Time to detection</dt><dd id="r-time">—</dd></div>
+          <div><dt>Presentations viewed</dt><dd id="r-cycles">—</dd></div>
+        </div>
+
+        <p id="r-remark"></p>
+
+        <p>With the blank removed, the change is not merely easier — it is impossible to miss. It leaps. This tells you precisely what you were using to see it, and it was not a mental picture.</p>
+
+        <p>A change in the world produces a <strong>local motion transient</strong>: a sharp, low-level signal at one place saying <em>something here just moved</em>. Your attention is dragged to it automatically, before you know anything about the scene. The grey blank floods the entire field with transients at once, and the one that matters is buried among them.</p>
+
+        <p>Strip out that reflex and you are left with only what you were genuinely holding in mind from one moment to the next — and the answer, it turns out, is close to nothing. Perhaps four items. Perhaps fewer. Not a picture. A handful of things you happened to be attending to, plus the standing assumption that the rest is still out there behaving itself.</p>
+
+        <h3>Why the illusion is so total</h3>
+
+        <p>Here is the part that should unsettle you: the reason you feel you have the whole scene is that <em>wherever you look, there it is</em>. Every enquiry you make of your visual world is answered instantly and in full detail, because the world is right there to be re-examined, and a saccade costs you thirty milliseconds. You have mistaken permanent availability for actual possession.</p>
+
+        <p>O’Regan put it exactly: the world serves as its own memory. There is no reason to store a copy of something that will still be there when you check. But the fluency of the checking creates an overwhelming impression of a copy that was never made.</p>
+
+        <blockquote>
+          Subjects have great difficulty seeing large changes to a scene, even while looking directly at them, provided the change coincides with a brief global disruption. The richness of visual experience is, in this respect, an illusion.
+          <cite>after Rensink, O’Regan &amp; Clark, Psychological Science, 1997</cite>
+        </blockquote>
+
+        <p>Instrument I showed you a report issued about a region you never received. This one shows something worse: a report issued about the <em>whole field</em>, continuously, on the strength of a few sampled items and an assumption of stability. You did not notice the deficit then. You have not noticed it in the room you are sitting in now.</p>
+
+        <p>Both instruments have so far only interfered with your eyes. It is tempting to conclude that vision is unusually shoddy and the rest of the mind is sound. The next instrument does the same thing to your preferences.</p>
+
+        <div class="footnotes">
+          <p>Rensink, R. A., O’Regan, J. K. &amp; Clark, J. J. (1997). To see or not to see: the need for attention to perceive changes in scenes. <em>Psychological Science</em>, 8, 368–373.</p>
+          <p>Simons, D. J. &amp; Levin, D. T. (1998). Failure to detect changes to people during a real-world interaction — the experimenter was swapped for a different person mid-conversation; half the subjects did not notice.</p>
+          <p>O’Regan, J. K. (1992). Solving the “real” mysteries of visual perception: the world as an outside memory. <em>Canadian Journal of Psychology</em>, 46, 461–488.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" data-pager></nav>
+  </main>
+</div>
+
+<script src="../assets/apparatus.js"></script>
+<script src="../assets/i/flicker.js"></script>
+</body>
+</html>

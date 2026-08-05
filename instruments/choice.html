@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>III. The Preference — Apparatus</title>
+<meta name="description" content="A choice blindness instrument. You will explain, in your own words, a decision you did not make.">
+<link rel="stylesheet" href="../assets/apparatus.css">
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root="../"></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Instrument III · Introspection</span>
+      <h1>The Preference</h1>
+      <p class="subtitle">Of everything you are sure about, your own preferences ought to be the safest. You are not reporting on the world here. You are reporting on yourself.</p>
+    </div>
+
+    <div class="prose">
+      <p class="lede">You will be shown pairs of forms and asked which you prefer. There is no correct answer; they are meaningless shapes generated a moment ago. After each choice you will be asked to say briefly what drew you to it.</p>
+      <p>This instrument does something to you during the procedure. You will be told exactly what, in full, the moment it ends — and nothing is transmitted anywhere. Saying more now would destroy the measurement.</p>
+      <div class="notice">Answer quickly and honestly. Do not deliberate; there is nothing to deliberate about.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span>Apparatus III — preference array</span>
+        <span class="readout" id="readout">Standing by</span>
+      </div>
+
+      <!-- intro -->
+      <div class="panel-body step active" id="s-intro">
+        <p class="center-text dim" style="margin-bottom:1.6rem">Five pairs. Roughly two minutes.</p>
+        <p class="center-text"><button id="begin" class="primary">Begin</button></p>
+      </div>
+
+      <!-- choose -->
+      <div class="panel-body step" id="s-choose">
+        <p class="center-text dim" id="choose-prompt" style="margin-bottom:1.8rem">Which of these two forms do you find more agreeable?</p>
+        <div style="display:flex; gap:clamp(1rem,4vw,3rem); justify-content:center; flex-wrap:wrap">
+          <div style="text-align:center">
+            <canvas id="opt-a" style="cursor:pointer" aria-label="Form A"></canvas>
+            <div style="margin-top:1rem"><button data-pick="0">Choose this</button></div>
+          </div>
+          <div style="text-align:center">
+            <canvas id="opt-b" style="cursor:pointer" aria-label="Form B"></canvas>
+            <div style="margin-top:1rem"><button data-pick="1">Choose this</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- justify -->
+      <div class="panel-body step" id="s-justify">
+        <p class="center-text dim" style="margin-bottom:1.6rem">You chose this one.</p>
+        <div style="text-align:center; margin-bottom:1.8rem">
+          <canvas id="opt-chosen" aria-label="The form recorded as your choice"></canvas>
+        </div>
+        <div style="max-width:32rem; margin:0 auto">
+          <label class="field" style="margin-bottom:0.7rem; display:block">In a sentence — what drew you to it?</label>
+          <textarea id="why" rows="2" placeholder="Because…"></textarea>
+          <div class="controls no-rule" style="padding:1rem 0 0; background:none">
+            <button id="record" class="primary" disabled>Record and continue</button>
+            <div class="spacer"></div>
+            <button id="object" class="quiet">This is not the form I chose</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body step" id="s-done">
+        <p class="center-text dim">Array complete.</p>
+        <p class="center-text"><button id="analyse" class="primary">Show me what happened</button></p>
+      </div>
+    </div>
+
+    <section class="finding" id="finding" hidden>
+      <p class="seal">Finding III</p>
+      <div class="prose">
+        <h2 style="margin-top:0">You explained a choice you did not make</h2>
+
+        <div class="readout-grid" style="border:1px solid var(--rule); margin-bottom:2.4rem">
+          <div><dt>Choices substituted</dt><dd id="r-swaps">—</dd></div>
+          <div><dt>Substitutions detected</dt><dd id="r-detected">—</dd></div>
+          <div><dt>Objections raised in error</dt><dd id="r-false">—</dd></div>
+        </div>
+
+        <p>On two of the five trials, the instrument showed you the form you <em>rejected</em> and told you it was your choice. Here is the record.</p>
+      </div>
+
+      <div id="transcript"></div>
+
+      <div class="prose">
+        <p id="r-verdict"></p>
+
+        <h3>What the sentence was actually made of</h3>
+
+        <p>If you wrote a reason for a form you had just turned down, notice what did <em>not</em> happen. You did not experience confusion, or a blank, or a sense of retrieving nothing. A reason arrived — fluently, in the first person, with the ordinary feeling of remembering why.</p>
+
+        <p>That reason cannot have been a memory of your deliberation, because the deliberation went the other way. It was constructed on the spot, from the form in front of you, and then handed to you already labelled as introspection. The label is the whole problem: <strong>the manufactured explanation and the genuine one are delivered in exactly the same voice, and you have no channel that distinguishes them.</strong></p>
+
+        <p>This is not a quirk of meaningless shapes. Johansson and colleagues ran it with photographs of faces and with jam and tea in a supermarket, and roughly three-quarters of substitutions went undetected — with subjects going on to defend the swapped choice, sometimes citing the specific feature that had been the reason they rejected it.</p>
+
+        <blockquote>
+          The subjects not only failed to notice the change, they also proceeded to give confabulatory reasons for a choice they never made.
+          <cite>Johansson, Hall, Sikström &amp; Olsson, Science, 2005</cite>
+        </blockquote>
+
+        <h3>The older result underneath it</h3>
+
+        <p>Nisbett and Wilson found the same architecture in 1977: people asked why they preferred one item in a row of identical items produced confident reasons — texture, quality, weave — when the only real predictor was <em>position</em>. Told the true cause, they rejected it. Not defensively. They simply could not find it by looking inward, because that is not something looking inward can find.</p>
+
+        <p>Set the three findings side by side. Instrument I: a report about a region you never received. Instrument II: a report about a scene you were not holding. Instrument III: a report about a decision you did not make. In every case the report was fluent, immediate, and sincere.</p>
+
+        <p><strong>Sincerity is not the issue.</strong> You were not lying. There is no liar here — that is precisely what makes it hard to defend against. The system that produces your self-explanations is not the system that makes your choices, and it has no privileged access to it. It is a press office, working from the same public evidence as everyone else, but issuing statements in the first person.</p>
+
+        <p>The next instrument leaves your mind alone and goes after your concepts.</p>
+
+        <div class="footnotes">
+          <p>Johansson, P., Hall, L., Sikström, S. &amp; Olsson, A. (2005). Failure to detect mismatches between intention and outcome in a simple decision task. <em>Science</em>, 310, 116–119.</p>
+          <p>Nisbett, R. E. &amp; Wilson, T. D. (1977). Telling more than we can know: verbal reports on mental processes. <em>Psychological Review</em>, 84, 231–259.</p>
+          <p>Gazzaniga, M. S. — split-brain work on the left hemisphere “interpreter”, which produces reasons for actions initiated by a hemisphere it cannot consult.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" data-pager></nav>
+  </main>
+</div>
+
+<script src="../assets/apparatus.js"></script>
+<script src="../assets/i/sigil.js"></script>
+<script src="../assets/i/choice.js"></script>
+</body>
+</html>

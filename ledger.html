@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Ledger — Apparatus</title>
+<meta name="description" content="Everything the apparatus observed about you, assembled into a portrait — and the argument that follows from it.">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/apparatus.css">
+<style>
+  .record-scroll { overflow-x: auto; }
+  .record { width: 100%; border-collapse: collapse; min-width: 34rem; }
+  .record td.name { white-space: nowrap; }
+  .record th {
+    text-align: left; font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint);
+    font-weight: 400; padding: 0 0.8rem 0.7rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .record td { padding: 0.95rem 0.8rem 0.95rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .record td.n { font-family: var(--mono); font-size: 0.7rem; color: var(--phosphor); width: 2.6rem; }
+  .record td.v { font-family: var(--mono); font-size: 0.78rem; color: var(--ink); text-align: right; white-space: nowrap; }
+  .record tr.pending td { color: var(--ink-faint); }
+  .record tr.pending td.n { color: var(--ink-faint); }
+  .portrait {
+    border-left: 2px solid var(--phosphor);
+    padding: 0.4rem 0 0.4rem 1.6rem;
+    margin: 2.4rem 0;
+  }
+  .portrait p { margin-bottom: 1.1rem; }
+  .portrait p:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root=""></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Closing · The Ledger</span>
+      <h1>The Ledger</h1>
+      <p class="subtitle">Everything the apparatus observed, and the only argument it has been trying to make.</p>
+    </div>
+
+    <div id="empty" class="prose" hidden>
+      <div class="notice">The ledger is empty. Run at least one instrument and it will begin to fill.</div>
+      <p><a href="index.html">Go to the instruments →</a></p>
+    </div>
+
+    <div id="filled" hidden>
+      <div class="prose">
+        <p class="lede">Below is the complete record of what this apparatus knows about you. It has never seen your face, does not know your name, and has no access whatsoever to your inner life. It has your behaviour under seven procedures, and nothing else.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-bar">
+          <span>Record of observations</span>
+          <span class="readout" id="completion">—</span>
+        </div>
+        <div class="panel-body">
+          <div class="record-scroll">
+            <table class="record">
+              <thead><tr><th></th><th>Instrument</th><th>Observation</th><th style="text-align:right">Value</th></tr></thead>
+              <tbody id="record"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h2>The portrait</h2>
+      <div class="prose">
+        <p>From that record alone, a description of a person can be written. Here is yours.</p>
+      </div>
+      <div class="portrait prose" id="portrait"></div>
+
+      <h2>What you have just read</h2>
+      <div class="prose">
+        <p>It is a portrait of someone, in the second person, in confident prose, assembled from behavioural traces by a few hundred lines of JavaScript that has never met you and cannot in principle know what anything is like for you.</p>
+
+        <p>It is not nothing. It is genuinely about you — those are your measurements, and a stranger reading it would learn something true. But you know exactly what it is, because you watched it being made: a <strong>model</strong>, built from outside, from evidence, for the purpose of making a person’s behaviour tractable and predictable.</p>
+
+        <p>Now the question the whole apparatus has been walking toward.</p>
+
+        <h3>What makes you so sure the other one is different?</h3>
+
+        <p>You have a second portrait. The one you carry — a rich, continuous sense of being a particular person, with a history, a character, motives you can inspect, decisions you make, and a definite location just behind the eyes.</p>
+
+        <p>Seven times now, that portrait has been caught in the act of construction.</p>
+
+        <p>It reported a complete visual field it never received. It reported a scene it was not holding. It reported reasons for a choice that was not made. It reported a boundary it drew twice in different places. It reported the time of a decision it could not have timed. It reported values that moved when the sentence moved. And it reported perfect understanding of marks that meant nothing to it at all.</p>
+
+        <p>Every one of those reports was sincere. Every one arrived with the same immediate, unearned confidence as the sentence you are reading now. And there is no eighth faculty standing behind them, checking.</p>
+
+        <blockquote>
+          For my part, when I enter most intimately into what I call <em>myself</em>, I always stumble on some particular perception or other — of heat or cold, light or shade, love or hatred, pain or pleasure. I never can catch <em>myself</em> at any time without a perception, and never can observe any thing but the perception.
+          <cite>David Hume, A Treatise of Human Nature, 1739</cite>
+        </blockquote>
+
+        <p>Hume went looking for the self and found only the contents. Two and a half centuries later the same conclusion arrives from the other direction: Metzinger’s claim is that the brain runs a <em>self-model</em>, and that its crucial property is <strong>transparency</strong> — you cannot see it as a model. You do not experience a representation of a self. You experience a self, because the representation is doing its job so well that the machinery is invisible. A window you can see through perfectly is a window you cannot see.</p>
+
+        <p>Dennett puts it as a centre of narrative gravity: not a thing in the head, but an abstraction the brain posits to organise an enormous quantity of parallel activity into one coherent story — real in the way a centre of gravity is real. There is no particle of centre-of-gravity in a chair, and it is not a fiction either.</p>
+
+        <h3>What this does not show</h3>
+
+        <p>Be careful here, because there is a cheap nihilism available and it is not what follows.</p>
+
+        <p>None of the seven instruments shows that nobody is home. They do not touch the fact that there is something it is like to be you — that fact survived every procedure intact, and is arguably the one thing on this site that cannot be got at experimentally at all. Nor do they show that your choices are not yours, or that your values are worthless, or that reasoning is futile. You reasoned your way through all seven, and the reasoning worked.</p>
+
+        <p>What they show is narrower and much harder to put down: <strong>your sense of direct, privileged, immediate access to your own mind is not a channel. It is a construction, of the same kind and the same reliability as your perception of the outside world — and you have no way, from the inside, to tell a good one from a bad one.</strong></p>
+
+        <p>Which is not a counsel of despair. It is the ordinary condition of every instrument that has ever been used to measure anything: it must be checked against something other than itself. That is what evidence is for, what other people are for, what argument is for. You are not in a worse position than a thermometer. You are simply in the same one, and the news is that you were never in a better one.</p>
+
+        <h3>One last operation</h3>
+
+        <p>The button below erases this ledger. Every observation, every measurement, every sentence of the portrait, gone from this machine completely.</p>
+
+        <p>Press it, and watch a detailed, evidence-based, entirely accurate description of a person disappear without the person going anywhere at all.</p>
+
+        <p>Then sit for a moment with the fact that you cannot run that test on the other one.</p>
+      </div>
+
+      <div class="panel" style="margin-top:2.6rem">
+        <div class="panel-bar"><span>Erasure</span><span class="readout">Irreversible · local</span></div>
+        <div class="panel-body">
+          <p class="dim" style="margin-bottom:1.2rem">This deletes everything the apparatus has stored in this browser. It cannot be undone, and there is no copy anywhere else, because there was never anywhere else.</p>
+          <button id="erase" class="danger">Erase the ledger</button>
+          <span class="tick" id="erased" style="margin-left:1rem"></span>
+        </div>
+      </div>
+
+      <div class="footnotes prose">
+        <p>Hume, D. (1739). <em>A Treatise of Human Nature</em>, I.iv.6, “Of personal identity”.</p>
+        <p>Metzinger, T. (2003). <em>Being No One</em>; and (2009) <em>The Ego Tunnel</em> — on the transparent self-model.</p>
+        <p>Dennett, D. C. (1992). The self as a center of narrative gravity. In F. Kessel et al. (eds.), <em>Self and Consciousness</em>.</p>
+        <p>Parfit, D. (1984). <em>Reasons and Persons</em>. Nagel, T. (1974). What is it like to be a bat? <em>Philosophical Review</em>, 83, 435–450 — on the residue that none of this touches.</p>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <span><a href="index.html">← The instruments</a></span>
+      <span><a href="about.html">Method &amp; sources</a></span>
+    </div>
+  </main>
+</div>
+
+<script src="assets/apparatus.js"></script>
+<script src="assets/ledger.js"></script>
+</body>
+</html>

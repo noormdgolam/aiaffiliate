@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apparatus — seven instruments for examining yourself</title>
+<meta name="description" content="Seven working experiments in the philosophy of mind. Not arguments about consciousness — procedures that run on you, and return a result.">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/apparatus.css">
+<style>
+  .hero { padding: clamp(2rem, 8vw, 6rem) 0 clamp(2rem, 6vw, 4rem); }
+  .hero h1 {
+    font-size: clamp(3rem, 1.6rem + 7vw, 6.5rem);
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+    margin-bottom: 1.6rem;
+  }
+  .epigraph {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--phosphor);
+    margin-bottom: 2.2rem;
+  }
+  .rule-row {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 3.5rem 0 1.2rem;
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-faint);
+  }
+  .rule-row::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root=""></header>
+
+  <main>
+    <div class="hero">
+      <p class="epigraph">Seven instruments · philosophy of mind, performed rather than argued</p>
+      <h1>Apparatus</h1>
+      <div class="prose">
+        <p class="lede">This is not a site about consciousness. Nothing here asks you to accept a position. Each of the seven instruments is a working procedure: you operate it, it operates on you, and it returns a result that is about <em>you</em> and not about anybody’s theory.</p>
+        <p>They are arranged so that each one takes some faculty you would ordinarily trust without a second thought — the completeness of your visual field, your memory of a scene, your knowledge of your own preferences, the edges of your concepts, the timing of your decisions, the stability of your values, and finally your understanding itself — and puts a load on it until something gives.</p>
+        <p>Six of them will find an error. The seventh will find nothing wrong at all, which is worse.</p>
+        <p class="dim">Allow about half an hour for the full sequence, or take one at a time. They are ordered deliberately, and the last two are much better with the first five behind them.</p>
+      </div>
+    </div>
+
+    <div class="rule-row">The instruments</div>
+
+    <ul class="index-list" id="index"></ul>
+
+    <div class="rule-row">Standing conditions</div>
+
+    <div class="prose">
+      <p><strong>Nothing you do here leaves this device.</strong> There is no server, no account, no analytics, no telemetry, and no network request of any kind — the whole thing runs from files in your browser and would work with the network cable pulled out. Your results are written to local storage on your own machine so that the ledger can assemble them, and one button on the ledger erases every trace.</p>
+
+      <p><strong>These are demonstrations, not experiments.</strong> You are one person, self-administering, unblinded, with no control condition. What an instrument tells you about yourself on a single run is worth very little. What the published work behind each one tells us about people in general is worth a great deal, and every instrument cites its sources at the foot of the page. Where the interpretation is genuinely contested — Libet’s clock and Searle’s room especially — you will find the objections set out, not buried.</p>
+
+      <p><strong>One instrument does something to you without warning.</strong> The third. It tells you exactly what, in full, the moment you finish it. Nothing is recorded anywhere but your own browser, and if you would rather know first, the <a href="about.html">method</a> page says so plainly.</p>
+    </div>
+
+    <div class="rule-row">Afterwards</div>
+
+    <div class="prose">
+      <p>The <a href="ledger.html">ledger</a> collects whatever you have completed and assembles it into a single portrait — a description of a person, built from behaviour, by something with no access whatsoever to that person’s inner life.</p>
+      <p>Then it makes the only argument this whole apparatus exists to make.</p>
+    </div>
+
+    <div class="colophon">
+      <span>Apparatus · a philosophical instrument</span>
+      <span><a href="about.html">Method &amp; sources</a></span>
+    </div>
+  </main>
+</div>
+
+<script src="assets/apparatus.js"></script>
+<script>
+(function () {
+  var A = window.Apparatus;
+  A.init('index');
+
+  var host = document.getElementById('index');
+  A.INSTRUMENTS.forEach(function (ins) {
+    var done = !!A.result(ins.id);
+    var li = document.createElement('li');
+    li.innerHTML =
+      '<a href="' + ins.file + '">' +
+        '<span class="num">' + ins.num + '</span>' +
+        '<span class="name">' + ins.name + '<small>' + ins.question + '</small></span>' +
+        '<span class="state' + (done ? ' done' : '') + '">' + (done ? 'Complete' : 'Not run') + '</span>' +
+      '</a>';
+    host.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>

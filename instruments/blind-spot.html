@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I. The Blind Spot — Apparatus</title>
+<meta name="description" content="An instrument that shows you the hole in your own visual field, and the thing your brain paints over it.">
+<link rel="stylesheet" href="../assets/apparatus.css">
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root="../"></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Instrument I · Perception</span>
+      <h1>The Blind Spot</h1>
+      <p class="subtitle">There is a hole in the middle of your sight, roughly the size of nine full moons laid side by side. You have never seen it. This instrument will show you what is not there.</p>
+    </div>
+
+    <div class="prose">
+      <p class="lede">Where the optic nerve leaves each eye, the retina has no photoreceptors. That patch of the world is not dim, or blurred, or grey. It is simply not received. And yet you have never once noticed a gap.</p>
+      <p>The obvious explanation — that the other eye covers it — is wrong, and you can prove it wrong in about forty seconds. Close one eye and the gap does not appear. Something else is happening.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span>Apparatus I — fixation array</span>
+        <span class="readout" id="readout">Stage 1 / 2 · locate</span>
+      </div>
+
+      <div class="panel-body">
+        <div class="notice phosphor" id="instructions">
+          <strong>1.</strong> Sit about an arm’s length from the screen.<br>
+          <strong>2.</strong> Cover your <span id="cover-eye">left</span> eye. Do not squint — cover it.<br>
+          <strong>3.</strong> With your <span id="use-eye">right</span> eye, stare at the <span style="color:var(--phosphor)">✛</span> and do not look away.<br>
+          <strong>4.</strong> Keeping your gaze on the ✛, drag the slider slowly. At some point the disc on the <span id="target-side">right</span> will vanish completely.
+        </div>
+      </div>
+
+      <div class="stage">
+        <canvas id="stage" aria-label="Fixation cross and target disc"></canvas>
+      </div>
+
+      <div class="controls">
+        <label class="field">
+          Separation
+          <input type="range" id="sep" min="70" max="440" value="230">
+          <span class="mono" id="sep-val" style="color:var(--phosphor)">230</span>
+        </label>
+        <div class="spacer"></div>
+        <button id="eye-toggle" class="quiet">Switch to left eye</button>
+      </div>
+
+      <div class="controls no-rule" style="border-top:1px solid var(--rule)">
+        <button id="vanished" class="primary">The disc vanished</button>
+        <button id="failed" class="quiet">I can’t make it vanish</button>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------------- stage 2 -->
+    <div id="stage2" class="step">
+      <div class="prose">
+        <h2>Now the interesting part</h2>
+        <p>You have located the hole. Hold everything exactly as it was — same eye covered, same distance, same separation. The instrument has changed the field to a ruled pattern, and has cut a disc out of it at precisely the position where your blind spot sits.</p>
+        <p><strong>There is a hole in the image.</strong> Look at the ✛ again and tell the instrument what you see where the hole is.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-bar">
+          <span>Apparatus I — completion field</span>
+          <span class="readout">Stage 2 / 2 · report</span>
+        </div>
+        <div class="stage">
+          <canvas id="stage-b" aria-label="Ruled field with a disc removed"></canvas>
+        </div>
+        <div class="controls">
+          <button id="saw-lines" class="primary">Unbroken lines — no hole</button>
+          <button id="saw-hole" class="quiet">I can still see the hole</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------------------------------------------- finding -->
+    <section class="finding" id="finding" hidden>
+      <p class="seal">Finding I</p>
+      <div class="prose">
+        <h2 style="margin-top:0">You saw lines that were never drawn</h2>
+
+        <div class="readout-grid" style="border:1px solid var(--rule); margin-bottom:2.4rem">
+          <div><dt>Eye used</dt><dd class="small" id="r-eye">—</dd></div>
+          <div><dt>Separation at extinction</dt><dd id="r-sep">—</dd></div>
+          <div><dt>Field completed</dt><dd class="small" id="r-fill">—</dd></div>
+        </div>
+
+        <p>Every claim your visual experience makes about that patch of the world is manufactured. No light from it reached you. The lines you saw continue across the gap were not in the image on your screen, and they were not in the light entering your eye. They were supplied.</p>
+
+        <p>Notice what this rules out. Vision cannot be a matter of the world arriving in you and being inspected. If it were, the gap would show up as a gap — a dark hole, an absence, a smear. Instead the missing region is delivered to you already finished, seamless, and confident, in a form indistinguishable from the parts you actually received.</p>
+
+        <h3>Two readings, and neither one is comfortable</h3>
+
+        <p><strong>The first:</strong> the brain genuinely paints. Ramachandran and Gregory showed in 1991 that a patch of visual noise surrounding a blind-spot gap gets completed <em>as noise</em>, with the right texture and grain — which looks a great deal like active rendering.</p>
+
+        <p><strong>The second,</strong> Dennett’s: nothing is painted, because there is no canvas and no one to look at it. The brain simply never receives a report of an absence, so it never issues one. You do not see a filled-in gap; you fail to see that anything is missing, which from the inside is identical.</p>
+
+        <p>The two readings disagree about the mechanism and agree about the thing that matters here: <em>the seamlessness of your visual world is not evidence that your visual world is complete.</em> It is evidence that you are not equipped to detect its incompleteness. Absence of the signal is not delivered to you as a signal of absence.</p>
+
+        <blockquote>
+          The brain does not need to “fill in” for the simple reason that the region is not being reported as empty — and nothing in the machinery is asking.
+          <cite>after D. C. Dennett, Consciousness Explained, 1991</cite>
+        </blockquote>
+
+        <p>Hold on to this, because the next six instruments are all versions of it. Each one takes some faculty you would swear is reporting the truth — your memory of a scene, your knowledge of your own preferences, the boundaries of your concepts, the moment you decided, your values, your understanding — and finds the same architecture underneath: <strong>a confident report, issued by a system that has no way of telling you what it doesn’t have.</strong></p>
+
+        <p>You just watched your visual system do it. You could not feel it happening. That is the whole problem in one image.</p>
+
+        <div class="footnotes">
+          <p>Mariotte, E. (1668) — first description of the blind spot, demonstrated at the court of Charles II by making a courtier’s head disappear.</p>
+          <p>Ramachandran, V. S. &amp; Gregory, R. L. (1991). Perceptual filling in of artificially induced scotomas in human vision. <em>Nature</em>, 350, 699–702.</p>
+          <p>Dennett, D. C. (1991). <em>Consciousness Explained</em>, ch. 5 — on why filling-in may be the wrong metaphor.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" data-pager></nav>
+  </main>
+</div>
+
+<script src="../assets/apparatus.js"></script>
+<script src="../assets/i/blind-spot.js"></script>
+</body>
+</html>

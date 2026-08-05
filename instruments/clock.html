@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V. The Clock — Apparatus</title>
+<meta name="description" content="Libet's clock. Report the exact moment you decided to move, and discover what kind of measurement that is.">
+<link rel="stylesheet" href="../assets/apparatus.css">
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root="../"></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Instrument V · Volition</span>
+      <h1>The Clock</h1>
+      <p class="subtitle">A decision is the one event you would expect to have front-row seats for. This instrument asks you to time one.</p>
+    </div>
+
+    <div class="prose">
+      <p class="lede">A dot will travel around a dial, one revolution every 2.56 seconds. At some point — of your own accord, for no reason, at a moment you have not planned — you will press.</p>
+      <p>Then the instrument will ask you a question that sounds simple: <em>where was the dot at the instant you first felt the urge to press?</em> Not when you pressed. When you first became aware of the intention to.</p>
+      <div class="notice">Do not decide in advance. Do not count, or wait for the dot to reach a landmark. Let the impulse arrive on its own, and try to catch the position at the moment it did. Five trials.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span>Apparatus V — chronometric dial</span>
+        <span class="readout" id="readout">Trial 1 / 5 · standing by</span>
+      </div>
+
+      <div class="stage" style="min-height:23rem; flex-direction:column; gap:1.2rem; padding:1.6rem 0">
+        <canvas id="dial" aria-label="Rotating clock dial"></canvas>
+        <p class="tick" id="hint" style="margin:0">Press begin, then wait for the dial to complete one revolution</p>
+      </div>
+
+      <div class="controls">
+        <button id="begin" class="primary">Begin trial</button>
+        <button id="press" disabled>Press · or hit space</button>
+        <div class="spacer"></div>
+        <span class="tick" id="tally">0 of 5 recorded</span>
+      </div>
+    </div>
+
+    <div class="step" id="s-done">
+      <div class="panel">
+        <div class="panel-body center-text">
+          <p class="dim">Five trials recorded.</p>
+          <button id="analyse" class="primary">Read the measurement</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="finding" id="finding" hidden>
+      <p class="seal">Finding V</p>
+      <div class="prose">
+        <h2 style="margin-top:0">What you just measured, and what you did not</h2>
+
+        <div class="readout-grid" style="border:1px solid var(--rule); margin-bottom:2.4rem">
+          <div><dt>Mean awareness → action</dt><dd id="r-mean">—</dd></div>
+          <div><dt>Spread across trials</dt><dd id="r-spread">—</dd></div>
+          <div><dt>Trials recorded</dt><dd id="r-n">—</dd></div>
+        </div>
+
+        <p id="r-remark"></p>
+
+        <h3>Libet’s result</h3>
+
+        <p>In 1983 Benjamin Libet ran exactly this procedure with an electrode on the scalp. Subjects reported awareness of the urge — he called it <em>W</em> — about 200 milliseconds before the muscle fired. But the <em>readiness potential</em>, a slow negative shift in motor cortex, began around 550 milliseconds before the movement: roughly a third of a second <strong>before the subject knew they had decided anything</strong>.</p>
+
+        <p>The apparent implication was violent, and it went around the world: the brain commits, and consciousness is informed afterwards, arriving in time to take credit.</p>
+
+        <h3>Why that conclusion is not safe</h3>
+
+        <p>It is worth being careful here, because the careless version of this experiment has done a great deal of philosophical damage.</p>
+
+        <p><strong>The readiness potential may not be a decision.</strong> Schurger and colleagues argued in 2012 that it is an artefact of how the data are analysed: spontaneous neural activity drifts randomly, movement is triggered when the drift happens to cross a threshold, and averaging trials backwards from the movement will <em>manufacture</em> a smooth rising curve out of noise. On that reading the RP is not a decision being made early — it is the shape you get when you look at randomness through a backwards-facing window.</p>
+
+        <p><strong>And the task is peculiar.</strong> Libet’s subjects were instructed to act for no reason whatsoever. Whatever produces an arbitrary, contentless twitch may have very little to do with whatever produces a considered choice about a career, a confession, or a vote.</p>
+
+        <h3>The part that survives</h3>
+
+        <p>Here is what does not depend on the electrode, and it is the reason this instrument is in the collection.</p>
+
+        <p>You reported a time. You produced a number for the onset of your own intention, and it felt like reading a value off an instrument — like <em>noticing</em>. But there is no clock in the mind, and no register stamping mental events with the moment of their arrival. To answer the question, you had to construct the answer afterwards, from the position of a dot you were watching with the same attention you were supposedly monitoring yourself with.</p>
+
+        <p>This is measurable and it is not subtle: reported W shifts when you play a beep <em>after</em> the movement, or apply a magnetic pulse to motor cortex, or simply change what people expect. The moment of decision is not retrieved. It is reconstructed, after the fact, from whatever evidence is lying about — exactly as your reasons were in Instrument III, and your visual field in Instrument I.</p>
+
+        <blockquote>
+          There is no line the signals cross, no place where “it all comes together”. Discriminations are distributed in space and time in the brain, and the sequence in which you experience events need not be the sequence in which they occurred.
+          <cite>after D. C. Dennett &amp; M. Kinsbourne, “Time and the Observer”, 1992</cite>
+        </blockquote>
+
+        <p>So the honest finding is not <em>you have no free will</em>. It is narrower and harder to shrug off: <strong>you are not a reliable witness to the timing of your own mind, and the confidence with which you reported that number was not calibrated to anything.</strong></p>
+
+        <p>Instrument VI stops asking about your machinery and starts asking about your values.</p>
+
+        <div class="footnotes">
+          <p>Libet, B., Gleason, C. A., Wright, E. W. &amp; Pearl, D. K. (1983). Time of conscious intention to act in relation to onset of cerebral activity. <em>Brain</em>, 106, 623–642.</p>
+          <p>Schurger, A., Sitt, J. D. &amp; Dehaene, S. (2012). An accumulator model for spontaneous neural activity prior to self-initiated movement. <em>PNAS</em>, 109, E2904–E2913.</p>
+          <p>Soon, C. S., Brass, M., Heinze, H.-J. &amp; Haynes, J.-D. (2008). Unconscious determinants of free decisions in the human brain. <em>Nature Neuroscience</em>, 11, 543–545 — decoding above chance, though only modestly, seconds in advance.</p>
+          <p>Dennett, D. C. &amp; Kinsbourne, M. (1992). Time and the observer. <em>Behavioral and Brain Sciences</em>, 15, 183–201.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" data-pager></nav>
+  </main>
+</div>
+
+<script src="../assets/apparatus.js"></script>
+<script src="../assets/i/clock.js"></script>
+</body>
+</html>

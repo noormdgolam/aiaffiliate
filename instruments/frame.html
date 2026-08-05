@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VI. The Frame — Apparatus</title>
+<meta name="description" content="Eight decisions. Some of them are the same decision twice, wearing different sentences.">
+<link rel="stylesheet" href="../assets/apparatus.css">
+</head>
+<body>
+<div class="shell">
+  <header class="masthead" data-masthead data-root="../"></header>
+
+  <main>
+    <div class="instrument-head">
+      <span class="designation">Instrument VI · Value</span>
+      <h1>The Frame</h1>
+      <p class="subtitle">Your preferences are supposed to be about the world. This instrument changes the sentence and leaves the world exactly as it was.</p>
+    </div>
+
+    <div class="prose">
+      <p class="lede">Eight decisions, one at a time. Some involve lives; treat them as seriously as the words deserve.</p>
+      <p>There is a minimal condition on wanting something: if two descriptions specify the very same outcome, you should not want it under one description and refuse it under the other. Economists call this invariance. Nobody argues about it. It is not a controversial theory of rationality — it is closer to a condition on the preference being <em>about</em> anything at all.</p>
+      <div class="notice">Answer as you actually would, quickly, without working backwards from what you think the instrument wants. It is measuring something you cannot fake in the direction you would want to.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span>Apparatus VI — decision series</span>
+        <span class="readout" id="readout">Standing by</span>
+      </div>
+
+      <div class="panel-body step active" id="s-intro">
+        <p class="center-text"><button id="begin" class="primary">Begin</button></p>
+      </div>
+
+      <div class="panel-body step" id="s-item">
+        <p class="tick" id="scenario-label" style="margin-bottom:1rem"></p>
+        <div class="prose" id="scenario" style="margin-bottom:2rem"></div>
+        <div id="options" style="display:flex; flex-direction:column; gap:0.8rem; max-width:36rem"></div>
+      </div>
+
+      <div class="panel-body step" id="s-done">
+        <p class="center-text dim">Series complete.</p>
+        <p class="center-text"><button id="analyse" class="primary">Compare your answers</button></p>
+      </div>
+    </div>
+
+    <section class="finding" id="finding" hidden>
+      <p class="seal">Finding VI</p>
+      <div class="prose">
+        <h2 style="margin-top:0">Some of those were the same question</h2>
+
+        <div class="readout-grid" style="border:1px solid var(--rule); margin-bottom:2.4rem">
+          <div><dt>Identical pairs presented</dt><dd id="r-pairs">—</dd></div>
+          <div><dt>Answers that reversed</dt><dd id="r-flips">—</dd></div>
+          <div><dt>Trolley divergence</dt><dd class="small" id="r-trolley">—</dd></div>
+        </div>
+      </div>
+
+      <div id="pairs-out"></div>
+
+      <div class="prose">
+        <p id="r-verdict"></p>
+
+        <h3>What a reversal means</h3>
+
+        <p>Take the first pair. “Two hundred will be saved” and “four hundred will die”, out of six hundred, are not similar outcomes, or nearly equivalent outcomes, or outcomes that a reasonable person might treat as interchangeable. They are <strong>the same outcome</strong>. Every fact is identical. The only difference is which end of it the sentence points at.</p>
+
+        <p>If your answer moved, then it was not being determined by the outcome. It was being determined by the outcome <em>plus the framing</em> — and the framing was chosen by whoever wrote the question. Which is to say: by someone other than you.</p>
+
+        <p>The mechanism is well mapped. A frame supplies a reference point, and you evaluate what follows as a gain or a loss from that point. Losses are felt roughly twice as steeply as equivalent gains, and people reliably gamble to avoid a certain loss while taking a sure thing to lock in a gain. Say “saved” and you are in the gain frame, hugging certainty. Say “die” and you are in the loss frame, reaching for the gamble. Same six hundred people either way.</p>
+
+        <p>Tversky and Kahneman found this in 1981 and it has not gone away. McNeil and colleagues found in 1982 that <em>physicians</em> choosing between surgery and radiation flipped their recommendations when identical statistics were expressed as survival rather than mortality. Doctors, on their own subject, with patients’ lives attached.</p>
+
+        <h3>The trolley pair is a different animal</h3>
+
+        <p>Do not lump it in. Diverting the trolley and pushing the man have identical arithmetic — one dies, five live — but they are not obviously the same act. Killing as a means to an end differs from killing as a foreseen side effect. That distinction has a serious philosophical pedigree, and the majority pattern (divert, but do not push) may well be tracking something real.</p>
+
+        <p>But notice the order of operations. The intuition arrives first, fast, and with total conviction, and the justification arrives afterwards, when asked. Greene’s imaging work found the personal version recruits emotional circuitry the impersonal version does not. So the honest question is not <em>which answer is right</em>, but the uncomfortable one behind it: <strong>if you had felt the opposite intuition, would you have found a principle for that instead?</strong> Instrument III has already shown you how quickly you can produce a reason for a position that was not yours.</p>
+
+        <h3>The construction of preference</h3>
+
+        <p>Standard economics treats a preference as something you <em>have</em> — a stable ordering, sitting in you, revealed by choices. The framing literature suggests something less flattering and more interesting: for anything but the most familiar decisions, the preference does not pre-exist the question. It is assembled, on demand, out of the materials the question supplies.</p>
+
+        <p>Which raises the question this instrument really exists to ask. When your answers reversed, one of them was your real view — so which? The instinct is to say “the one I gave when I understood the question properly”. But you understood both perfectly. Nothing was hidden. You have two sincere answers to one question and no procedure, anywhere, for deciding which of them you actually hold.</p>
+
+        <blockquote>
+          The adoption of a decision frame is partly controlled by the formulation of the problem and partly by the norms, habits and characteristics of the decision maker. It is often possible to frame a given problem in more than one way — and different frames yield different preferences.
+          <cite>Tversky &amp; Kahneman, Science, 1981</cite>
+        </blockquote>
+
+        <p>One instrument remains. It has nothing to do with error, and everything to do with meaning.</p>
+
+        <div class="footnotes">
+          <p>Tversky, A. &amp; Kahneman, D. (1981). The framing of decisions and the psychology of choice. <em>Science</em>, 211, 453–458 — the Asian disease problem.</p>
+          <p>McNeil, B. J., Pauker, S. G., Sox, H. C. &amp; Tversky, A. (1982). On the elicitation of preferences for alternative therapies. <em>New England Journal of Medicine</em>, 306, 1259–1262.</p>
+          <p>Foot, P. (1967) and Thomson, J. J. (1976, 1985) — the origin and elaboration of the trolley cases.</p>
+          <p>Greene, J. D. et al. (2001). An fMRI investigation of emotional engagement in moral judgment. <em>Science</em>, 293, 2105–2108.</p>
+          <p>Slovic, P. (1995). The construction of preference. <em>American Psychologist</em>, 50, 364–371.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" data-pager></nav>
+  </main>
+</div>
+
+<script src="../assets/apparatus.js"></script>
+<script src="../assets/i/frame.js"></script>
+</body>
+</html>
